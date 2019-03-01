@@ -23,14 +23,8 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(rb2d.position.y >= grounded.y)
-        {
-            isJumping = true;
-        }
-        else
-        {
-            isJumping = false;
-        }
+        isJumping = rb2d.position.y >= grounded.y;
+        
         if (Input.GetKey(KeyCode.None))
         {
             //
