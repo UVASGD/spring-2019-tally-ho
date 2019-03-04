@@ -112,7 +112,6 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
-        grid[width - 1, endIndex].type = RoomType.end;
         return grid;
     }
 }
