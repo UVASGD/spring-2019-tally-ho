@@ -6,25 +6,20 @@ public class MovementScript : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb2d;
-    public bool isJumping;
-    private Vector2 grounded;
     private float maxSpeed;
+    private Transform lastPlatform;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 6;
         rb2d = GetComponent<Rigidbody2D>();
-        isJumping = false;
-        grounded = new Vector2(0, 0.5f);
         maxSpeed = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isJumping = rb2d.position.y >= grounded.y;
-        
         if (Input.GetKey(KeyCode.None))
         {
             //
@@ -45,10 +40,27 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        bool CheckGrounded()
         {
-            if (!isJumping) {
-                rb2d.AddForce(Vector3.up * 2, ForceMode2D.Impulse);
+            RaycastHit2D[] thingIHit = new RaycastHit2D[1];
+            bool grounded = GetComponent<Rigidbody2D>().Cast(Vector2.down, thingIHit, 0.02f) > 0;
+            if (grounded)
+            {
+                string tag = thingIHit[0].transform.gameObject.tag;
+                if (tag.Equals("Platform"))
+                {
+                    lastPlatform = thingIHit[0].transform;
+                }
+            }
+
+            return grounded;
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            if (CheckGrounded())
+            {
+                rb2d.AddForce(Vector3.up * 6, ForceMode2D.Impulse);
             }
         }
 
