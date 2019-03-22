@@ -7,18 +7,10 @@ public class LevelGenerator : MonoBehaviour {
     public int levelwidth, levelheight;
     public GameObject RoomPrefab;
 
-    // Start is called before the first frame update
-    void Start() {
-        for (int i = 0; i < 10; i++) {
-            printGrid(GenerateLayout(levelwidth, levelheight, 0));
-        }
-        print("width: " + RoomPrefab.transform.Find("Background").localScale.x);
-        print("cell width: " + (RoomPrefab.transform.Find("Background").localScale.x - RoomPrefab.transform.Find("WallTopRight").localScale.y));
-        print("cell height: " + (RoomPrefab.transform.Find("Background").localScale.y - RoomPrefab.transform.Find("WallTopRight").localScale.y));
-    }
-
-    // Update is called once per frame
-    void Update() {
+    private void Awake() {
+        Room[,] rooms = GenerateLayout(levelwidth, levelheight, 0);
+        PutRoomsInScene(rooms);
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void printGrid(Room[,] grid) {
@@ -115,26 +107,23 @@ public class LevelGenerator : MonoBehaviour {
         return grid;
     }
 
-    void putRoomsInScene(Room[,] grid) {
+    void PutRoomsInScene(Room[,] grid) {
         float roomWidth = RoomPrefab.transform.Find("Background").localScale.x - RoomPrefab.transform.Find("WallTopRight").localScale.y;
         float roomHeight = RoomPrefab.transform.Find("Background").localScale.y - RoomPrefab.transform.Find("WallTopRight").localScale.y;
 
         for (int i = 0; i < grid.GetLength(0); i++) {
             for (int j = 0; j < grid.GetLength(1); j++) {
+                Vector3 pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y - j * roomHeight, transform.position.z);
                 switch (grid[i, j].type) {
                     case RoomType.none:
-
                         break;
                     case RoomType.normal:
-                        Vector3 pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y + j * roomHeight, transform.position.z);
                         GameObject newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
                         break;
                     case RoomType.start:
-                        pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y + j * roomHeight, transform.position.z);
                         newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
                         break;
                     case RoomType.end:
-                        pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y + j * roomHeight, transform.position.z);
                         newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
                         break;
                 }
