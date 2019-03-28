@@ -26,7 +26,7 @@ public class MovementScript : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (rb2d.velocity.x <= maxSpeed)
+            if (rb2d.velocity.x >= -maxSpeed)
             {
                 rb2d.AddForce(Vector3.left * speed);
             }
