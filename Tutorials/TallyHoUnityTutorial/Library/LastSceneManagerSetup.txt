@@ -1,0 +1,4 @@
+sceneSetups:
+- path: C:/Users/TSK8VA/Documents/GitHub/spring-2019-tally-ho/Tally Ho!/Assets/Scenes/SampleScene.unity
+  isLoaded: 1
+  isActive: 1
