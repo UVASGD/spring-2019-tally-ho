@@ -123,6 +123,8 @@ public class LevelGenerator : MonoBehaviour {
                         break;
                     case RoomType.start:
                         newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
+                        GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
+                        newPlayer.name = "Cornelius";
                         break;
                     case RoomType.end:
                         newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
