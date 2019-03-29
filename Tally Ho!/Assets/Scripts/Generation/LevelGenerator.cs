@@ -6,6 +6,7 @@ public class LevelGenerator : MonoBehaviour {
 
     public int levelwidth, levelheight;
     public GameObject RoomPrefab;
+    public GameObject Player;
 
     private void Awake() {
         Room[,] rooms = GenerateLayout(levelwidth, levelheight, 0);
