@@ -4,26 +4,66 @@ using UnityEngine;
 
 public class MovementScript : MonoBehaviour
 {
+    public bool isClimbing;
+    public bool onLadder;
+
     public float speed;
     private Rigidbody2D rb2d;
     private float maxSpeed;
     private Transform lastPlatform;
-
+    private Vector2 stop = new Vector2(0, 0);
+    private Vector2 up = new Vector2(0, 2);
+    private Vector2 down = new Vector2(0, -2);
+    private Vector2 left = new Vector2(-2, 0);
+    private Vector2 right = new Vector2(2, 0);
     // Start is called before the first frame update
     void Start()
     {
         speed = 6;
         rb2d = GetComponent<Rigidbody2D>();
         maxSpeed = 3;
+
+        onLadder = false;
+        isClimbing = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.None))
+        if (isClimbing)
         {
-            //
+            rb2d.gravityScale = 0;
         }
+        else
+        {
+            rb2d.gravityScale = 1;
+        }
+
+        if(Input.anyKey == false)
+        {
+            if (isClimbing)
+            {
+                rb2d.velocity = stop;
+            }
+            else
+            {
+                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+            }
+        }
+
+        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        {
+            rb2d.velocity = new Vector2(0, rb2d.velocity.y);
+        }
+
+        if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+        {
+            if (isClimbing)
+            {
+                rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
+            }
+        }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             if (rb2d.velocity.x >= -maxSpeed)
@@ -58,7 +98,15 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (CheckGrounded())
+            if (onLadder)
+            {
+                isClimbing = true;
+            }
+            if (isClimbing)
+            {
+                rb2d.velocity = up;
+            }
+            else if (CheckGrounded()&& !onLadder)
             {
                 rb2d.AddForce(Vector3.up * 6, ForceMode2D.Impulse);
             }
@@ -66,7 +114,35 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rb2d.AddForce(Vector3.down * speed);
+            if (onLadder)
+            {
+                isClimbing = true;
+            }
+            if (isClimbing)
+            {
+                rb2d.velocity = down;
+            }
+            else
+            {
+                rb2d.AddForce(Vector3.down * speed);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D trigCollider)
+    {
+        if (trigCollider.gameObject.tag == "Ladder")
+        {
+            onLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D trigCollider)
+    {
+        if (trigCollider.gameObject.tag == "Ladder")
+        {
+            onLadder = false;
+            isClimbing = false;
         }
     }
 }
