@@ -39,7 +39,8 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
 
-        anim.SetBool("Airborne", !CheckGrounded() && !isClimbing);
+        anim.SetBool("Airborne", !CheckGrounded());
+        anim.SetBool("Climbing", isClimbing);
         if (isClimbing)
         {
             rb2d.gravityScale = 0;
@@ -53,6 +54,7 @@ public class MovementScript : MonoBehaviour
         {
             if (isClimbing)
             {
+                anim.SetBool("Climbing-Paused", true);
                 rb2d.velocity = stop;
             }
             else
@@ -82,6 +84,7 @@ public class MovementScript : MonoBehaviour
             {
                 rb2d.AddForce(Vector3.left * speed);
                 anim.SetBool("Walking", true);
+                anim.SetBool("Climbing-Paused", false);
             }
         }
 
@@ -92,6 +95,7 @@ public class MovementScript : MonoBehaviour
             {
                 rb2d.AddForce(Vector3.right * speed);
                 anim.SetBool("Walking", true);
+                anim.SetBool("Climbing-Paused", false);
             }
         }
 
@@ -103,6 +107,7 @@ public class MovementScript : MonoBehaviour
             }
             if (isClimbing)
             {
+                anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = up;
             }
             else if (CheckGrounded()&& !onLadder)
@@ -119,6 +124,7 @@ public class MovementScript : MonoBehaviour
             }
             if (isClimbing)
             {
+                anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = down;
             }
             else
@@ -126,6 +132,8 @@ public class MovementScript : MonoBehaviour
                 rb2d.AddForce(Vector3.down * speed);
             }
         }
+
+        Debug.Log(anim.GetBool("Climbing-Paused"));
     }
 
     private void OnTriggerEnter2D(Collider2D trigCollider)
