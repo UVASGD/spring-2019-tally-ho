@@ -7,9 +7,12 @@ public class LevelGenerator : MonoBehaviour {
     public int levelwidth, levelheight;
     public GameObject RoomPrefab;
     public GameObject Player;
+    public float roomWidth, roomHeight;
 
     private void Awake() {
         Room[,] rooms = GenerateLayout(levelwidth, levelheight, 0);
+        roomWidth = RoomPrefab.transform.Find("Background").localScale.x - RoomPrefab.transform.Find("WallTopRight").localScale.y;
+        roomHeight = RoomPrefab.transform.Find("Background").localScale.y - RoomPrefab.transform.Find("WallTopRight").localScale.y;
         PutRoomsInScene(rooms);
         GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -109,28 +112,60 @@ public class LevelGenerator : MonoBehaviour {
     }
 
     void PutRoomsInScene(Room[,] grid) {
-        float roomWidth = RoomPrefab.transform.Find("Background").localScale.x - RoomPrefab.transform.Find("WallTopRight").localScale.y;
-        float roomHeight = RoomPrefab.transform.Find("Background").localScale.y - RoomPrefab.transform.Find("WallTopRight").localScale.y;
 
         for (int i = 0; i < grid.GetLength(0); i++) {
             for (int j = 0; j < grid.GetLength(1); j++) {
-                Vector3 pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y - j * roomHeight, transform.position.z);
-                switch (grid[i, j].type) {
-                    case RoomType.none:
-                        break;
-                    case RoomType.normal:
-                        GameObject newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
-                        break;
-                    case RoomType.start:
-                        newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
-                        GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
-                        newPlayer.name = "Cornelius";
-                        break;
-                    case RoomType.end:
-                        newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
-                        break;
+                if(grid[i,j].type != RoomType.none)
+                {
+                    addRoomAtPosition(i, j, grid[i,j]);
                 }
             }
+        }
+    }
+
+    void addRoomAtPosition(int i, int j, Room room) {
+        Vector3 pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y - j * roomHeight, transform.position.z);
+        GameObject newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
+        if(room.type == RoomType.start)
+        {
+            GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
+            newPlayer.name = "Cornelius";
+        }
+        if(room.up == DoorState.open)
+        {
+            Destroy(newRoom.transform.Find("WallTop").gameObject);
+        }
+        else
+        {
+            Destroy(newRoom.transform.Find("WallTopLeft").gameObject);
+            Destroy(newRoom.transform.Find("WallTopRight").gameObject);
+        }
+        if (room.down == DoorState.open)
+        {
+            Destroy(newRoom.transform.Find("WallBottom").gameObject);
+        }
+        else
+        {
+            Destroy(newRoom.transform.Find("WallBottomLeft").gameObject);
+            Destroy(newRoom.transform.Find("WallBottomRight").gameObject);
+        }
+        if (room.left == DoorState.open)
+        {
+            Destroy(newRoom.transform.Find("WallLeft").gameObject);
+        }
+        else
+        {
+            Destroy(newRoom.transform.Find("WallLeftTop").gameObject);
+            Destroy(newRoom.transform.Find("WallLeftBottom").gameObject);
+        }
+        if (room.right == DoorState.open)
+        {
+            Destroy(newRoom.transform.Find("WallRight").gameObject);
+        }
+        else
+        {
+            Destroy(newRoom.transform.Find("WallRightTop").gameObject);
+            Destroy(newRoom.transform.Find("WallRightBottom").gameObject);
         }
     }
 
