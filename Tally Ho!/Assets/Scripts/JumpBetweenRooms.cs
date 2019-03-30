@@ -5,6 +5,7 @@ using UnityEngine;
 public class JumpBetweenRooms : MonoBehaviour
 {
     private float roomWidth, roomHeight;
+    public float lerpSpeed;
     private GameObject target;//will be set to player
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class JumpBetweenRooms : MonoBehaviour
         int gridy = Mathf.RoundToInt(target.transform.position.y / roomHeight);
         float newx = gridx * roomWidth;
         float newy = gridy * roomHeight;
-        transform.position = new Vector3(newx, newy, transform.position.z);
-        
+        Vector3 targetPos = new Vector3(newx, newy, transform.position.z);
+        transform.position += (targetPos - transform.position) * lerpSpeed;
     }
 }

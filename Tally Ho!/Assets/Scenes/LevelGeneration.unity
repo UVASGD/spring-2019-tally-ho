@@ -216,6 +216,8 @@ MonoBehaviour:
   RoomPrefab: {fileID: 6319591783305769101, guid: 75409df801fd44cdfa4ea2ec318e25ac,
     type: 3}
   Player: {fileID: 314377101214189177, guid: bf576f202159b4b9ca03e1733441d84b, type: 3}
+  roomWidth: 0
+  roomHeight: 0
 --- !u!4 &440432258
 Transform:
   m_ObjectHideFlags: 0
@@ -329,9 +331,9 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  field of view: 76
+  orthographic: 1
+  orthographic size: 2.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -355,7 +357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392741487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -373,3 +375,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34f35cc9e054c54aabf00872ed7edb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerpSpeed: 0.15
