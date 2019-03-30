@@ -211,13 +211,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00944472956445c2a3f4a95d32ee80f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelwidth: 20
-  levelheight: 10
+  levelwidth: 8
+  levelheight: 4
   RoomPrefab: {fileID: 6319591783305769101, guid: 75409df801fd44cdfa4ea2ec318e25ac,
     type: 3}
   Player: {fileID: 314377101214189177, guid: bf576f202159b4b9ca03e1733441d84b, type: 3}
   roomWidth: 0
   roomHeight: 0
+  randomRoomChance: 0.25
 --- !u!4 &440432258
 Transform:
   m_ObjectHideFlags: 0
