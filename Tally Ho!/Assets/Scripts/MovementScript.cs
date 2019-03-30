@@ -61,13 +61,13 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (!Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             anim.SetBool("Walking", false);
         }
 
-        if (!Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.DownArrow))
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
         {
             if (isClimbing)
             {
@@ -75,7 +75,7 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             rend.flipX = true;
             if (rb2d.velocity.x >= -maxSpeed)
@@ -85,7 +85,7 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             rend.flipX = false;
             if (rb2d.velocity.x <= maxSpeed)
@@ -95,7 +95,7 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (onLadder)
             {
@@ -111,7 +111,7 @@ public class MovementScript : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.S))
         {
             if (onLadder)
             {
