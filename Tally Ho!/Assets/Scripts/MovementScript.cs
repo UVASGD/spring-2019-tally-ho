@@ -39,7 +39,7 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
 
-        anim.SetBool("Airborne", !CheckGrounded());
+        anim.SetBool("Airborne", !CheckGrounded() && !isClimbing);
         if (isClimbing)
         {
             rb2d.gravityScale = 0;
@@ -139,13 +139,17 @@ public class MovementScript : MonoBehaviour
     private bool CheckGrounded()
     {
         RaycastHit2D[] thingIHit = new RaycastHit2D[1];
-        bool grounded = GetComponent<Rigidbody2D>().Cast(Vector2.down, thingIHit, 0.02f) > 0;
+        LayerMask groundmask = LayerMask.GetMask("Ground");
+        ContactFilter2D filter = new ContactFilter2D();
+        filter.layerMask = groundmask;
+        bool grounded = GetComponent<Rigidbody2D>().Cast(Vector2.down, filter, thingIHit, 0.02f) > 0;
         if (grounded)
         {
             string tag = thingIHit[0].transform.gameObject.tag;
-            if (tag.Equals("Platform"))
+            if (tag.Equals("Ladder"))
             {
-                lastPlatform = thingIHit[0].transform;
+                //Not Grounded.
+                //return false;
             }
         }
 
