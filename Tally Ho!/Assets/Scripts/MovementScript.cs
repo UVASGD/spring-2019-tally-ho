@@ -8,8 +8,10 @@ using UnityEngine;
 public class MovementScript : MonoBehaviour
 {
     public bool isClimbing;
-    public bool onLadder;
+    //public bool onLadder;
 
+
+    private int ladderDepth;
     public float speed;
     private Rigidbody2D rb2d;
     private float maxSpeed;
@@ -29,7 +31,7 @@ public class MovementScript : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         maxSpeed = 3;
 
-        onLadder = false;
+        ladderDepth = 0;
         isClimbing = false;
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
@@ -101,7 +103,7 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (onLadder)
+            if (onLadder())
             {
                 isClimbing = true;
             }
@@ -110,7 +112,7 @@ public class MovementScript : MonoBehaviour
                 anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = up;
             }
-            else if (CheckGrounded()&& !onLadder)
+            else if (CheckGrounded()&& !onLadder())
             {
                 rb2d.AddForce(Vector3.up * 6, ForceMode2D.Impulse);
             }
@@ -118,7 +120,7 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            if (onLadder)
+            if (onLadder())
             {
                 isClimbing = true;
             }
@@ -136,11 +138,15 @@ public class MovementScript : MonoBehaviour
         Debug.Log(anim.GetBool("Climbing-Paused"));
     }
 
+    private bool onLadder() {
+        return ladderDepth > 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D trigCollider)
     {
         if (trigCollider.gameObject.tag == "Ladder")
         {
-            onLadder = true;
+            ladderDepth++;
         }
     }
 
@@ -168,8 +174,8 @@ public class MovementScript : MonoBehaviour
     {
         if (trigCollider.gameObject.tag == "Ladder")
         {
-            onLadder = false;
-            isClimbing = false;
+            ladderDepth--;
+            isClimbing = onLadder();
         }
     }
 }

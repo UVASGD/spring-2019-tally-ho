@@ -188,6 +188,7 @@ public class LevelGenerator : MonoBehaviour {
         {
             Destroy(newRoom.transform.Find("WallTopLeft").gameObject);
             Destroy(newRoom.transform.Find("WallTopRight").gameObject);
+            Destroy(newRoom.transform.Find("Ladder Adder").gameObject);
         }
         if (room.down == DoorState.open)
         {
