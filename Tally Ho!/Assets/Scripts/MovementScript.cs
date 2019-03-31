@@ -27,7 +27,7 @@ public class MovementScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 6;
+        speed = 300;
         rb2d = GetComponent<Rigidbody2D>();
         maxSpeed = 3;
 
@@ -84,7 +84,7 @@ public class MovementScript : MonoBehaviour
             rend.flipX = true;
             if (rb2d.velocity.x >= -maxSpeed)
             {
-                rb2d.AddForce(Vector3.left * speed);
+                rb2d.AddForce(Vector3.left * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
                 anim.SetBool("Climbing-Paused", false);
             }
@@ -95,7 +95,7 @@ public class MovementScript : MonoBehaviour
             rend.flipX = false;
             if (rb2d.velocity.x <= maxSpeed)
             {
-                rb2d.AddForce(Vector3.right * speed);
+                rb2d.AddForce(Vector3.right * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
                 anim.SetBool("Climbing-Paused", false);
             }
@@ -131,7 +131,7 @@ public class MovementScript : MonoBehaviour
             }
             else
             {
-                rb2d.AddForce(Vector3.down * speed);
+                rb2d.AddForce(Vector3.down * Time.deltaTime * speed);
             }
         }
 
