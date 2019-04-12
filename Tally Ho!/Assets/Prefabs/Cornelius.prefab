@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 7.2}
+  m_Size: {x: 3.26, y: 7.2}
   m_EdgeRadius: 0
 --- !u!95 &6276057937314475383
 Animator:
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6521236312596429582}
   m_Layer: 0
   m_Name: kickbox
-  m_TagString: Untagged
+  m_TagString: player attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 1565132517174449608}
   m_Layer: 0
   m_Name: punchbox
-  m_TagString: Untagged
+  m_TagString: player attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
