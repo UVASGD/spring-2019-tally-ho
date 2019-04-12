@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class MovementScript : MonoBehaviour
-{
+public class MovementScript : MonoBehaviour {
     public bool isClimbing;
     //public bool onLadder;
 
@@ -25,8 +24,7 @@ public class MovementScript : MonoBehaviour
     private Animator anim;
     private SpriteRenderer rend;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         speed = 300;
         rb2d = GetComponent<Rigidbody2D>();
         maxSpeed = 3;
@@ -38,130 +36,100 @@ public class MovementScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
         anim.SetBool("Airborne", !CheckGrounded());
         anim.SetBool("Climbing", isClimbing);
-        if (isClimbing)
-        {
+        if (isClimbing) {
             rb2d.gravityScale = 0;
-        }
-        else
-        {
+        } else {
             rb2d.gravityScale = 1;
         }
 
-        if(Input.anyKey == false)
-        {
-            if (isClimbing)
-            {
+        if (Input.anyKey == false) {
+            if (isClimbing) {
                 anim.SetBool("Climbing-Paused", true);
                 rb2d.velocity = stop;
-            }
-            else
-            {
+            } else {
                 rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             }
         }
 
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-        {
+        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) {
             rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             anim.SetBool("Walking", false);
         }
 
-        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
-        {
-            if (isClimbing)
-            {
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S)) {
+            if (isClimbing) {
                 rb2d.velocity = new Vector2(rb2d.velocity.x, 0);
             }
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
+        if (Input.GetKey(KeyCode.A)) {
             rend.flipX = true;
-            if (rb2d.velocity.x >= -maxSpeed)
-            {
+            if (rb2d.velocity.x >= -maxSpeed) {
                 rb2d.AddForce(Vector3.left * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
                 anim.SetBool("Climbing-Paused", false);
             }
         }
 
-        if (Input.GetKey(KeyCode.D))
-        {
+        if (Input.GetKey(KeyCode.D)) {
             rend.flipX = false;
-            if (rb2d.velocity.x <= maxSpeed)
-            {
+            if (rb2d.velocity.x <= maxSpeed) {
                 rb2d.AddForce(Vector3.right * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
                 anim.SetBool("Climbing-Paused", false);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (onLadder())
-            {
+        if (Input.GetKeyDown(KeyCode.W)) {
+            if (onLadder()) {
                 isClimbing = true;
             }
-            if (isClimbing)
-            {
+            if (isClimbing) {
                 anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = up;
-            }
-            else if (CheckGrounded()&& !onLadder())
-            {
+            } else if (CheckGrounded() && !onLadder()) {
                 rb2d.AddForce(Vector3.up * 6, ForceMode2D.Impulse);
             }
         }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (onLadder())
-            {
+        if (Input.GetKey(KeyCode.S)) {
+            if (onLadder()) {
                 isClimbing = true;
             }
-            if (isClimbing)
-            {
+            if (isClimbing) {
                 anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = down;
-            }
-            else
-            {
+            } else {
                 rb2d.AddForce(Vector3.down * Time.deltaTime * speed);
             }
         }
 
-        Debug.Log(anim.GetBool("Climbing-Paused"));
+        //Debug.Log(anim.GetBool("Climbing-Paused"));
     }
 
     private bool onLadder() {
         return ladderDepth > 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D trigCollider)
-    {
-        if (trigCollider.gameObject.tag == "Ladder")
-        {
+    private void OnTriggerEnter2D(Collider2D trigCollider) {
+        if (trigCollider.gameObject.tag == "Ladder") {
             ladderDepth++;
         }
     }
 
-    private bool CheckGrounded()
-    {
+    private bool CheckGrounded() {
         RaycastHit2D[] thingIHit = new RaycastHit2D[1];
         LayerMask groundmask = LayerMask.GetMask("Ground");
         ContactFilter2D filter = new ContactFilter2D();
         filter.layerMask = groundmask;
         bool grounded = GetComponent<Rigidbody2D>().Cast(Vector2.down, filter, thingIHit, 0.02f) > 0;
-        if (grounded)
-        {
+        if (grounded) {
             string tag = thingIHit[0].transform.gameObject.tag;
-            if (tag.Equals("Ladder"))
-            {
+            if (tag.Equals("Ladder")) {
                 //Not Grounded.
                 //return false;
             }
@@ -170,10 +138,8 @@ public class MovementScript : MonoBehaviour
         return grounded;
     }
 
-    private void OnTriggerExit2D(Collider2D trigCollider)
-    {
-        if (trigCollider.gameObject.tag == "Ladder")
-        {
+    private void OnTriggerExit2D(Collider2D trigCollider) {
+        if (trigCollider.gameObject.tag == "Ladder") {
             ladderDepth--;
             isClimbing = onLadder();
         }
