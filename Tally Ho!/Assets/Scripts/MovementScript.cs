@@ -108,7 +108,7 @@ public class MovementScript : MonoBehaviour {
             }
         }
 
-        Debug.Log(anim.GetBool("Climbing-Paused"));
+        //Debug.Log(anim.GetBool("Climbing-Paused"));
     }
 
     private bool onLadder() {
