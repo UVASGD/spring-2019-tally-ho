@@ -166,6 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isClimbing: 0
   speed: 0
+  punchbox: {fileID: 1742628370390333861}
+  kickbox: {fileID: 992738967019353926}
 --- !u!114 &7891227092080552601
 MonoBehaviour:
   m_ObjectHideFlags: 0

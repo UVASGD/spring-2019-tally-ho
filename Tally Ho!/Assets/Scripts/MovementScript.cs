@@ -23,6 +23,9 @@ public class MovementScript : MonoBehaviour {
 
     private Animator anim;
     private SpriteRenderer rend;
+
+    public Transform punchbox;
+    public Transform kickbox;//heh
     // Start is called before the first frame update
     void Start() {
         speed = 300;
@@ -68,6 +71,7 @@ public class MovementScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.A)) {
             rend.flipX = true;
+            flipBoxes(rend.flipX);
             if (rb2d.velocity.x >= -maxSpeed) {
                 rb2d.AddForce(Vector3.left * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
@@ -77,6 +81,7 @@ public class MovementScript : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.D)) {
             rend.flipX = false;
+            flipBoxes(rend.flipX);
             if (rb2d.velocity.x <= maxSpeed) {
                 rb2d.AddForce(Vector3.right * Time.deltaTime * speed);
                 anim.SetBool("Walking", true);
@@ -142,6 +147,16 @@ public class MovementScript : MonoBehaviour {
         if (trigCollider.gameObject.tag == "Ladder") {
             ladderDepth--;
             isClimbing = onLadder();
+        }
+    }
+
+    private void flipBoxes(bool flipped) {
+        if (flipped && Mathf.Sign(punchbox.localPosition.x) > 0) {
+            punchbox.localPosition = new Vector3(-punchbox.localPosition.x, punchbox.localPosition.y, punchbox.localPosition.z);
+            kickbox.localPosition = new Vector3(-kickbox.localPosition.x, kickbox.localPosition.y, kickbox.localPosition.z);
+        } else if (!flipped && Mathf.Sign(punchbox.localPosition.x) < 0) {
+            punchbox.localPosition = new Vector3(-punchbox.localPosition.x, punchbox.localPosition.y, punchbox.localPosition.z);
+            kickbox.localPosition = new Vector3(-kickbox.localPosition.x, kickbox.localPosition.y, kickbox.localPosition.z);
         }
     }
 }
