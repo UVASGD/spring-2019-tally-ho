@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 992738967019353926}
   - component: {fileID: 4817562615579344430}
   - component: {fileID: 6521236312596429582}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: kickbox
   m_TagString: player attack
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 1742628370390333861}
   - component: {fileID: 8004931316492058927}
   - component: {fileID: 1565132517174449608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: punchbox
   m_TagString: player attack
   m_Icon: {fileID: 0}
