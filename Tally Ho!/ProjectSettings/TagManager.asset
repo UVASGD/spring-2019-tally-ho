@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ladder
   - player attack
+  - Ground
+  - Enemy Attack
   layers:
   - Default
   - TransparentFX
