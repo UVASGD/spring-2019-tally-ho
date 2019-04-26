@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class HealthScript : MonoBehaviour
 {
-    private int health;
+    [SerializeField]
+    private int health = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+
     }
 
     // Update is called once per frame
@@ -20,13 +21,22 @@ public class HealthScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigCollider)
     {
-        if (trigCollider.gameObject.tag == "player attack")
+        if (trigCollider.gameObject.tag == "Player attack" && !gameObject.CompareTag("Player"))
         {
             health -= 10;
+            if (health == 0)
+            {
+                Destroy(gameObject);
+            }
         }
-        if (health == 0)
+        if(trigCollider.gameObject.tag == "Enemy Attack" && gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            health -= 10;
+            if (health == 0)
+            {
+                //Do Something
+                Destroy(gameObject);
+            }
         }
     }
 }
