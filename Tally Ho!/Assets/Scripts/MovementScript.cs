@@ -25,7 +25,7 @@ public class MovementScript : MonoBehaviour {
     private SpriteRenderer rend;
     // Start is called before the first frame update
     void Start() {
-        speed = 300;
+        speed = 600;
         rb2d = GetComponent<Rigidbody2D>();
         maxSpeed = 3;
 
