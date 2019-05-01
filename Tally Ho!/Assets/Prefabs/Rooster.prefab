@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6298615044881964950}
   - component: {fileID: 983410570819630670}
   - component: {fileID: 1002019468973147708}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: KICK1
   m_TagString: Enemy Attack
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 2669769127125129416}
   - component: {fileID: 8178052469756207319}
   - component: {fileID: 3296258391540003383}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: KICK2
   m_TagString: Enemy Attack
   m_Icon: {fileID: 0}
@@ -227,8 +227,8 @@ GameObject:
   - component: {fileID: 7065038480006491000}
   - component: {fileID: 1510131507}
   - component: {fileID: 3822929003940798731}
-  m_Layer: 0
-  m_Name: Globma
+  m_Layer: 12
+  m_Name: Rooster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
