@@ -5,9 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
-  - player attack
   - Ground
   - Enemy Attack
+  - Enemy
+  - Player Attack
+  - player attack
   layers:
   - Default
   - TransparentFX
@@ -21,9 +23,9 @@ TagManager:
   - Ground
   - Ladder
   - Attack
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - InvisibleBox
   - 
   - 
   - 
