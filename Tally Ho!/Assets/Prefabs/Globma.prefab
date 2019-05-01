@@ -397,6 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 10
-  hitboxes: []
+  hitboxes:
+  - {fileID: 2140019514541368936}
+  - {fileID: 5615786394080105463}
   player: {fileID: 0}
   attackRange: 1

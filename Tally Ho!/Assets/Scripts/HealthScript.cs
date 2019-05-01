@@ -21,7 +21,7 @@ public class HealthScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigCollider)
     {
-        if (trigCollider.gameObject.tag == "Player attack" && !gameObject.CompareTag("Player"))
+        if (trigCollider.gameObject.tag == "player attack" && !gameObject.CompareTag("Player"))
         {
             health -= 10;
             if (health == 0)
