@@ -12,6 +12,7 @@ public class ImpassiveAggressiveness : MonoBehaviour
     public float attackRange;
     public Sprite passive;
     public Sprite shouting;
+    public bool moving = true;
 
     private SpriteRenderer spriteRenderer;
 
@@ -36,7 +37,7 @@ public class ImpassiveAggressiveness : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddForce((walkingRight ? 1 : -1) * new Vector2(force, 0));
+        if (moving) rb.AddForce((walkingRight ? 1 : -1) * new Vector2(force, 0));
         if (!isAttacking && (player.gameObject.transform.position - gameObject.transform.position).magnitude < attackRange)
         {
             StartCoroutine(Attack());
