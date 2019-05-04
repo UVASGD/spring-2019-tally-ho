@@ -444,11 +444,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cornelius
       objectReference: {fileID: 0}
-    - target: {fileID: 314377101214189177, guid: db1794f41f5cc4c72b64caa53a08b73e,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 314377101214189179, guid: db1794f41f5cc4c72b64caa53a08b73e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,16 +498,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 314377101214189179, guid: db1794f41f5cc4c72b64caa53a08b73e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 314377101214189179, guid: db1794f41f5cc4c72b64caa53a08b73e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db1794f41f5cc4c72b64caa53a08b73e, type: 3}
@@ -708,6 +693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rooster
       objectReference: {fileID: 0}
+    - target: {fileID: 7065038480006491004, guid: 54a52d8d39560407e8e5f536a846982a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7065038480006491002, guid: 54a52d8d39560407e8e5f536a846982a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -762,6 +752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140019514541368936, guid: 54a52d8d39560407e8e5f536a846982a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54a52d8d39560407e8e5f536a846982a, type: 3}
@@ -1104,7 +1099,7 @@ PrefabInstance:
     - target: {fileID: 2807740195560173942, guid: f71e6dda369514f5a8dbbba2deb11952,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2807740195560173941, guid: f71e6dda369514f5a8dbbba2deb11952,
         type: 3}
