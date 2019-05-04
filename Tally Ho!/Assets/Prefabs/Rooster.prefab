@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8745694988249372287}
   - component: {fileID: 4448622118514004219}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Physicsbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

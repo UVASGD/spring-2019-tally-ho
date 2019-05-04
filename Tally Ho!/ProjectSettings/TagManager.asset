@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Player Attack
   - player attack
+  - invisible box
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Enemy
   - Player
   - InvisibleBox
-  - EntityPhysicsBox
-  - 
+  - PlayerPhysicsBox
+  - EnemyPhysicsBox
   - 
   - 
   - 
