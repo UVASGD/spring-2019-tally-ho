@@ -97,7 +97,7 @@ public class MovementScript : MonoBehaviour {
                 anim.SetBool("Climbing-Paused", false);
                 rb2d.velocity = up;
             } else if (CheckGrounded() && !onLadder()) {
-                rb2d.AddForce(Vector3.up * 6, ForceMode2D.Impulse);
+                rb2d.AddForce(Vector3.up * 4, ForceMode2D.Impulse);
             }
         }
 
