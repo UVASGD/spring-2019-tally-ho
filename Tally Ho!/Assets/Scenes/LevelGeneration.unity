@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -213,8 +213,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelwidth: 8
   levelheight: 4
-  RoomPrefab: {fileID: 6319591783305769101, guid: 75409df801fd44cdfa4ea2ec318e25ac,
+  DefaultRoom: {fileID: 6319591783305769101, guid: 112806b70cf3e764d915e2ca2acd93f3,
     type: 3}
+  RoomPrefabs:
+  - {fileID: 6319591783305769101, guid: 46a6aee658964c244a719420f7adf897, type: 3}
+  - {fileID: 6319591783305769101, guid: c7589f4b0269eab41b460f92799a1aac, type: 3}
+  - {fileID: 6319591783305769101, guid: 3f6370cd0f2664d81972c775ef05a10c, type: 3}
+  - {fileID: 6319591783305769101, guid: 60e11a7ce5cabf84b9dbbd0472c67b3a, type: 3}
+  - {fileID: 6319591783305769101, guid: 7a588187b5f898743a15cb6a0ba6c7b5, type: 3}
+  - {fileID: 6319591783305769101, guid: 12b8e9c48da6f9f45b9ad43786bc9f30, type: 3}
+  - {fileID: 6319591783305769101, guid: 4aeabcda6b0533141b5a31c30ba2b6e2, type: 3}
   Player: {fileID: 314377101214189177, guid: db1794f41f5cc4c72b64caa53a08b73e, type: 3}
   roomWidth: 0
   roomHeight: 0
