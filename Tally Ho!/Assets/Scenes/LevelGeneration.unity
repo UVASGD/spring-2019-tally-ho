@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -217,7 +217,7 @@ MonoBehaviour:
     type: 3}
   RoomPrefabs:
   - {fileID: 6319591783305769101, guid: 46a6aee658964c244a719420f7adf897, type: 3}
-  - {fileID: 6319591783305769101, guid: c7589f4b0269eab41b460f92799a1aac, type: 3}
+  - {fileID: 6319591783305769101, guid: 46a6aee658964c244a719420f7adf897, type: 3}
   - {fileID: 6319591783305769101, guid: 3f6370cd0f2664d81972c775ef05a10c, type: 3}
   - {fileID: 6319591783305769101, guid: 60e11a7ce5cabf84b9dbbd0472c67b3a, type: 3}
   - {fileID: 6319591783305769101, guid: 7a588187b5f898743a15cb6a0ba6c7b5, type: 3}

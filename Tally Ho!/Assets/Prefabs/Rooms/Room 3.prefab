@@ -433,21 +433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallBottomRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -508,6 +493,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallBottomRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
 --- !u!4 &2637422953831029540 stripped
@@ -523,11 +523,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -593,6 +588,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
 --- !u!4 &2248969683911670297 stripped
@@ -608,11 +613,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -677,6 +677,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
@@ -843,11 +853,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallTop
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -902,6 +907,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallTop
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
@@ -1078,21 +1088,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallBottom
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1148,6 +1143,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallBottom
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
 --- !u!4 &888643901628417570 stripped
@@ -1163,11 +1173,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1233,6 +1238,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
 --- !u!4 &4086647579085485527 stripped
@@ -1248,11 +1263,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallTopLeft
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1317,6 +1327,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallTopLeft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
@@ -1643,11 +1658,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1712,6 +1722,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
@@ -1898,11 +1918,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallTopRight
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1963,6 +1978,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallTopRight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
 --- !u!4 &5832329063780084723 stripped
@@ -1978,11 +1998,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 9208887301759734609, guid: 8704917bbeaee4f89b59a59e6cc78ccb,
-        type: 3}
-      propertyPath: m_Name
-      value: ExitLadder
-      objectReference: {fileID: 0}
     - target: {fileID: 6572174256981893382, guid: 8704917bbeaee4f89b59a59e6cc78ccb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2037,6 +2052,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9208887301759734609, guid: 8704917bbeaee4f89b59a59e6cc78ccb,
+        type: 3}
+      propertyPath: m_Name
+      value: ExitLadder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8704917bbeaee4f89b59a59e6cc78ccb, type: 3}
@@ -2128,21 +2148,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Name
-      value: WallBottomLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 2305909479655523305, guid: a92fe185f22d24cd0b06bd139beb6612,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2203,6 +2208,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Name
+      value: WallBottomLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 329624179045675833, guid: a92fe185f22d24cd0b06bd139beb6612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a92fe185f22d24cd0b06bd139beb6612, type: 3}
 --- !u!4 &6025338474759297670 stripped
@@ -2218,11 +2238,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2288,6 +2303,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.34848
       objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
 --- !u!4 &8807525361039564881 stripped
@@ -2303,11 +2328,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6319591783305769102}
     m_Modifications:
-    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
-        type: 3}
-      propertyPath: m_Name
-      value: Ladder Adder
-      objectReference: {fileID: 0}
     - target: {fileID: 702562328079047975, guid: 335e174d8be1c3f4691a4b576544a6a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2372,6 +2392,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.34848002
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154930049523481665, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ladder Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2492864918303784779, guid: 335e174d8be1c3f4691a4b576544a6a2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 335e174d8be1c3f4691a4b576544a6a2, type: 3}
