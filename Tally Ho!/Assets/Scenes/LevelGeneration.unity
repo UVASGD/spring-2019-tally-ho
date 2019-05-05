@@ -217,7 +217,7 @@ MonoBehaviour:
     type: 3}
   RoomPrefabs:
   - {fileID: 6319591783305769101, guid: 46a6aee658964c244a719420f7adf897, type: 3}
-  - {fileID: 6319591783305769101, guid: 46a6aee658964c244a719420f7adf897, type: 3}
+  - {fileID: 3385989455545653351, guid: a4af1435ed0f94cbc916670600f41110, type: 3}
   - {fileID: 6319591783305769101, guid: 3f6370cd0f2664d81972c775ef05a10c, type: 3}
   - {fileID: 6319591783305769101, guid: 60e11a7ce5cabf84b9dbbd0472c67b3a, type: 3}
   - {fileID: 6319591783305769101, guid: 7a588187b5f898743a15cb6a0ba6c7b5, type: 3}
