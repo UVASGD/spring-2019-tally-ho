@@ -19,6 +19,6 @@ public class MainMenuPlay : MonoBehaviour
 
     public void Play() {
         Debug.Log("Play!~");
-        //SceneManager.LoadScene("LevelGeneration");
+        SceneManager.LoadScene("LevelGeneration");
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CreditsBack : MonoBehaviour
 {
@@ -19,6 +20,6 @@ public class CreditsBack : MonoBehaviour
     public void ToMenu()
     {
         Debug.Log("Menu!~");
-        //SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 }

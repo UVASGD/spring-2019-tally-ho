@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuCredits : MonoBehaviour
 {
@@ -18,6 +19,6 @@ public class MainMenuCredits : MonoBehaviour
 
     public void Credits() {
         Debug.Log("Credits!~");
-        //SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits");
     }
 }
