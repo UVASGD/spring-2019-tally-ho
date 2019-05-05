@@ -2,38 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthScript : MonoBehaviour
-{
+public class HealthScript : MonoBehaviour {
     [SerializeField]
     private int health = 100;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private AudioSource hurtSound;
+    private bool haveSound;
 
+    // Start is called before the first frame update
+    void Start() {
+        if (GetComponent<AudioSource>() != null) {
+            hurtSound = GetComponent<AudioSource>();
+            haveSound = true;
+        }
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
     }
 
-    private void OnTriggerEnter2D(Collider2D trigCollider)
-    {
-        if (trigCollider.gameObject.tag == "player attack" && !gameObject.CompareTag("Player"))
-        {
+    private void OnTriggerEnter2D(Collider2D trigCollider) {
+        if (trigCollider.gameObject.tag == "player attack" && !gameObject.CompareTag("Player")) {
+            if (haveSound) {
+                hurtSound.Play();
+            }
             health -= 10;
-            if (health == 0)
-            {
+            if (health == 0) {
                 Destroy(gameObject);
             }
         }
-        if(trigCollider.gameObject.tag == "Enemy Attack" && gameObject.CompareTag("Player"))
-        {
+        if (trigCollider.gameObject.tag == "Enemy Attack" && gameObject.CompareTag("Player")) {
+            if (haveSound) {
+                hurtSound.Play();
+            }
             health -= 10;
-            if (health == 0)
-            {
+            if (health == 0) {
                 //Do Something
                 Destroy(gameObject);
             }
