@@ -104,7 +104,7 @@ public class SmartBoy : MonoBehaviour
                 //move towards player
                 Vector2 godelta = player.transform.position - gameObject.transform.position;
                 if(rb.velocity.magnitude <= maxSpeed || Vector2.Dot(rb.velocity, godelta) < 0) {
-                    rb.AddForce(Vector2.Dot(godelta, Vector2.right) * Vector2.right * force, ForceMode2D.Impulse);
+                    rb.AddForce(Mathf.Min(Vector2.Dot(godelta, Vector2.right), 1) * Vector2.right * force, ForceMode2D.Impulse);
                 }
 
                 if(godelta.magnitude <= attackDistance) {
