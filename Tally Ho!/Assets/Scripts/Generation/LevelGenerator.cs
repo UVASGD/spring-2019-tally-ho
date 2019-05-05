@@ -5,15 +5,17 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour {
 
     public int levelwidth, levelheight;
-    public GameObject RoomPrefab;
+    public GameObject DefaultRoom;
+    public List<GameObject> RoomPrefabs;
     public GameObject Player;
+    public GameObject boss;
     public float roomWidth, roomHeight;
     public float randomRoomChance;
 
     private void Awake() {
         List<Room> rooms = GenerateLayout(levelwidth, levelheight, 0);
-        roomWidth = RoomPrefab.transform.Find("Background").localScale.x - RoomPrefab.transform.Find("WallTopRight").localScale.y;
-        roomHeight = RoomPrefab.transform.Find("Background").localScale.y - RoomPrefab.transform.Find("WallTopRight").localScale.y;
+        roomWidth = DefaultRoom.transform.Find("Background").localScale.x - DefaultRoom.transform.Find("WallTopRight").localScale.y;
+        roomHeight = DefaultRoom.transform.Find("Background").localScale.y - DefaultRoom.transform.Find("WallTopRight").localScale.y;
         PutRoomsInScene(rooms);
         GetComponent<SpriteRenderer>().enabled = false;
     }
@@ -35,7 +37,7 @@ public class LevelGenerator : MonoBehaviour {
         Room[,] grid = new Room[width, height];
         for (int i = 0; i < grid.GetLength(0); i++) {
             for (int j = 0; j < grid.GetLength(1); j++) {
-                grid[i, j] = new Room(_x : i, _y : j);
+                grid[i, j] = new Room(_x: i, _y: j);
             }
         }
         //add random rooms
@@ -74,8 +76,7 @@ public class LevelGenerator : MonoBehaviour {
                 if (coinflip != 0) {
                     x++;
                     grid[x, y].type = RoomType.normal;
-                } else
-                {
+                } else {
                     y++;
                     grid[x, y].type = RoomType.normal;
                 }
@@ -95,17 +96,15 @@ public class LevelGenerator : MonoBehaviour {
 
         //BFS from start room
         List<Room> floorRooms = new List<Room>();//contains all rooms in the floor
-       //floorRooms.Add(grid[0, startIndex]);
+                                                 //floorRooms.Add(grid[0, startIndex]);
         Queue<Room> q = new Queue<Room>();
         q.Enqueue(grid[0, startIndex]);
-        while(q.Count > 0)
-        {
+        while (q.Count > 0) {
             Room nextRoom = q.Dequeue();
             nextRoom.reached = true;
             floorRooms.Add(nextRoom);
-            foreach(Room r in GetNeighbors(nextRoom, grid)){
-                if(r.type != RoomType.none && !r.reached)
-                {
+            foreach (Room r in GetNeighbors(nextRoom, grid)) {
+                if (r.type != RoomType.none && !r.reached) {
                     q.Enqueue(r);
                 }
             }
@@ -113,25 +112,20 @@ public class LevelGenerator : MonoBehaviour {
 
 
         //open appropriate doors
-        foreach(Room r in floorRooms)
-        {
-            if(r.x > 0 && grid[r.x - 1, r.y].type != RoomType.none)
-            {
+        foreach (Room r in floorRooms) {
+            if (r.x > 0 && grid[r.x - 1, r.y].type != RoomType.none) {
                 r.left = DoorState.open;
                 grid[r.x - 1, r.y].right = DoorState.open;
             }
-            if (r.y > 0 && grid[r.x, r.y - 1].type != RoomType.none)
-            {
+            if (r.y > 0 && grid[r.x, r.y - 1].type != RoomType.none) {
                 r.up = DoorState.open;
                 grid[r.x, r.y - 1].down = DoorState.open;
             }
-            if (r.x < grid.GetLength(0) - 1 && grid[r.x + 1, r.y].type != RoomType.none)
-            {
+            if (r.x < grid.GetLength(0) - 1 && grid[r.x + 1, r.y].type != RoomType.none) {
                 r.right = DoorState.open;
                 grid[r.x + 1, r.y].left = DoorState.open;
             }
-            if (r.y < grid.GetLength(1) - 1 && grid[r.x, r.y + 1].type != RoomType.none)
-            {
+            if (r.y < grid.GetLength(1) - 1 && grid[r.x, r.y + 1].type != RoomType.none) {
                 r.down = DoorState.open;
                 grid[r.x, r.y + 1].up = DoorState.open;
             }
@@ -139,33 +133,26 @@ public class LevelGenerator : MonoBehaviour {
         return floorRooms;
     }
 
-    List<Room> GetNeighbors(Room r, Room[,] grid)
-    {
+    List<Room> GetNeighbors(Room r, Room[,] grid) {
         List<Room> result = new List<Room>();
-        if(r.x > 0)
-        {
+        if (r.x > 0) {
             result.Add(grid[r.x - 1, r.y]);
         }
-        if(r.y > 0)
-        {
+        if (r.y > 0) {
             result.Add(grid[r.x, r.y - 1]);
         }
-        if (r.x < grid.GetLength(0)-1)
-        {
+        if (r.x < grid.GetLength(0) - 1) {
             result.Add(grid[r.x + 1, r.y]);
         }
-        if (r.y < grid.GetLength(1)-1)
-        {
+        if (r.y < grid.GetLength(1) - 1) {
             result.Add(grid[r.x, r.y + 1]);
         }
         return result;
     }
 
     void PutRoomsInScene(List<Room> desiredRooms) {
-        foreach (Room r in desiredRooms)
-        {
-            if (r.type != RoomType.none)
-            {
+        foreach (Room r in desiredRooms) {
+            if (r.type != RoomType.none) {
                 addRoomAtPosition(r.x, r.y, r);
             }
         }
@@ -174,61 +161,49 @@ public class LevelGenerator : MonoBehaviour {
     //Adds Rooms and Doors
     void addRoomAtPosition(int i, int j, Room room) {
         Vector3 pos = new Vector3(transform.position.x + i * roomWidth, transform.position.y - j * roomHeight, transform.position.z);
-        GameObject newRoom = Instantiate(RoomPrefab, pos, Quaternion.identity, transform);
-        if(room.type == RoomType.start)
-        {
+        GameObject RoomToAdd = RoomPrefabs[Random.Range(0, RoomPrefabs.Count)];
+        if (room.type == RoomType.start) {
+            RoomToAdd = DefaultRoom;
             GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
             newPlayer.name = "Cornelius";
+        } else if(room.type == RoomType.end) {
+            GameObject finalBoss = Instantiate(boss, pos, Quaternion.identity, null);
+            finalBoss.name = "Level 99 Chicken";
         }
-        if(room.up == DoorState.open)
-        {
+        GameObject newRoom = Instantiate(RoomToAdd, pos, Quaternion.identity, transform);
+        if (room.up == DoorState.open) {
             Destroy(newRoom.transform.Find("WallTop").gameObject);
-        }
-        else
-        {
+        } else {
             Destroy(newRoom.transform.Find("WallTopLeft").gameObject);
             Destroy(newRoom.transform.Find("WallTopRight").gameObject);
-            Destroy(newRoom.transform.Find("Ladder Adder").gameObject);
+            Destroy(newRoom.transform.Find("ExitLadder").gameObject);
         }
-        if (room.down == DoorState.open)
-        {
+        if (room.down == DoorState.open) {
             Destroy(newRoom.transform.Find("WallBottom").gameObject);
-        }
-        else
-        {
+        } else {
             Destroy(newRoom.transform.Find("WallBottomLeft").gameObject);
             Destroy(newRoom.transform.Find("WallBottomRight").gameObject);
         }
-        if (room.left == DoorState.open)
-        {
+        if (room.left == DoorState.open) {
             Destroy(newRoom.transform.Find("WallLeft").gameObject);
-        }
-        else
-        {
+        } else {
             Destroy(newRoom.transform.Find("WallLeftTop").gameObject);
             Destroy(newRoom.transform.Find("WallLeftBottom").gameObject);
         }
-        if (room.right == DoorState.open)
-        {
+        if (room.right == DoorState.open) {
             Destroy(newRoom.transform.Find("WallRight").gameObject);
-        }
-        else
-        {
+        } else {
             Destroy(newRoom.transform.Find("WallRightTop").gameObject);
             Destroy(newRoom.transform.Find("WallRightBottom").gameObject);
         }
     }
-    
+
     //Runs Before Generate Layout
-    void RandomRooms(Room[,] grid, float chance)
-    {
-        for (int i = 0; i < grid.GetLength(0); i++)
-        {
-            for (int j = 0; j < grid.GetLength(1); j++)
-            {
+    void RandomRooms(Room[,] grid, float chance) {
+        for (int i = 0; i < grid.GetLength(0); i++) {
+            for (int j = 0; j < grid.GetLength(1); j++) {
                 float coinflip = Random.Range(0f, 1f);
-                if (coinflip < chance)
-                {
+                if (coinflip < chance) {
                     grid[i, j].type = RoomType.normal;
                 }
             }

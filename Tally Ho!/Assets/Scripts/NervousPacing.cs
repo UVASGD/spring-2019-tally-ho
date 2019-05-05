@@ -6,11 +6,14 @@ public class NervousPacing : MonoBehaviour {
     private bool walkingRight;
     private Rigidbody2D rb;
     public float force = 1;
-    public GameObject[] hitboxes;
     public GameObject player;
     public float attackRange;
 
+    public Transform punchbox;
+
     private bool isAttacking;
+
+    Animator anim;
     // Start is called before the first frame update
     void Start() {
         walkingRight = true;
@@ -19,13 +22,14 @@ public class NervousPacing : MonoBehaviour {
         if(!player) {
             player = GameObject.FindWithTag("Player");
         }
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update() {
         rb.AddForce((walkingRight ? 1 : -1) * new Vector2(force, 0));
-        if (!isAttacking && (player.gameObject.transform.position - gameObject.transform.position).magnitude < attackRange) {
-            StartCoroutine(Attack());
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName("peck") && (player.gameObject.transform.position - gameObject.transform.position).magnitude < attackRange) {
+            GetComponent<Animator>().SetTrigger("attack");
         }
     }
 
@@ -33,28 +37,22 @@ public class NervousPacing : MonoBehaviour {
     {
         if (!collision.otherCollider.CompareTag("Ground")) {
             walkingRight = !walkingRight;
+            setDirection(!walkingRight);
         }
     }
 
-    public IEnumerator Attack() {
+    void setDirection(bool direction)
+    {
 
-        isAttacking = true;
+        GetComponent<SpriteRenderer>().flipX = !direction;
 
-        yield return new WaitForSeconds(0.1f);
-
-        foreach(GameObject hitbox in hitboxes) {
-            hitbox.SetActive(true);
-        }
-
-        Debug.Log("hit!");
-
-        yield return new WaitForSeconds(0.8f);
-
-        foreach (GameObject hitbox in hitboxes)
+        if (direction && Mathf.Sign(punchbox.localPosition.x) > 0)
         {
-            hitbox.SetActive(false);
+            punchbox.localPosition = new Vector3(-punchbox.localPosition.x, punchbox.localPosition.y, punchbox.localPosition.z);
         }
-
-        isAttacking = false;
+        else if (!direction && Mathf.Sign(punchbox.localPosition.x) < 0)
+        {
+            punchbox.localPosition = new Vector3(-punchbox.localPosition.x, punchbox.localPosition.y, punchbox.localPosition.z);
+        }
     }
 }

@@ -131,12 +131,14 @@ public class MovementScript : MonoBehaviour {
         LayerMask groundmask = LayerMask.GetMask("Ground");
         ContactFilter2D filter = new ContactFilter2D();
         filter.layerMask = groundmask;
+        filter.useLayerMask = true;
         bool grounded = GetComponent<Rigidbody2D>().Cast(Vector2.down, filter, thingIHit, 0.02f) > 0;
         if (grounded) {
+            Debug.Log(thingIHit[0].transform.gameObject.name);
             string tag = thingIHit[0].transform.gameObject.tag;
-            if (tag.Equals("Ladder")) {
+            if (tag.Equals("Ladder") || tag.Equals("invisible box")) {
                 //Not Grounded.
-                //return false;
+                return false;
             }
         }
 

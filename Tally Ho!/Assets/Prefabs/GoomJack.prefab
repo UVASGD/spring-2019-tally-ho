@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 450288298}
   - component: {fileID: 450288300}
   - component: {fileID: 450288299}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: screamRight
   m_TagString: Enemy Attack
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 6777684925228387740}
   - component: {fileID: 4016950757506869386}
   - component: {fileID: 4801571351427268753}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: screamLeft
   m_TagString: Enemy Attack
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 5457051243735147861}
   - component: {fileID: 8507330549004564747}
   - component: {fileID: 3200452450412947216}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GoomJack
   m_TagString: Enemy
   m_Icon: {fileID: 0}

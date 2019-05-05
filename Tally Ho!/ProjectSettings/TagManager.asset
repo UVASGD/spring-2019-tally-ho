@@ -9,6 +9,8 @@ TagManager:
   - Enemy Attack
   - Enemy
   - Player Attack
+  - player attack
+  - invisible box
   layers:
   - Default
   - TransparentFX
@@ -22,11 +24,11 @@ TagManager:
   - Ground
   - Ladder
   - Attack
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - InvisibleBox
+  - PlayerPhysicsBox
+  - EnemyPhysicsBox
   - 
   - 
   - 
