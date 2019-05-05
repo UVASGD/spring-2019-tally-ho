@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140019514541368936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.328, y: 0.4346, z: 0}
-  m_LocalScale: {x: 1.6684006, y: 1.9131558, z: 1}
+  m_LocalPosition: {x: -0.993, y: 0.179, z: 0}
+  m_LocalScale: {x: 0.99770355, y: 2.4239683, z: 1}
   m_Children: []
   m_Father: {fileID: 7065038480006491002}
   m_RootOrder: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4206823994709191071}
   - component: {fileID: 3365233911743047850}
   m_Layer: 12
-  m_Name: Rooster
+  m_Name: Level99Rooster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 7065038480006491004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.527, y: 0.831, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6298615044881964950}
   - {fileID: 8745694988249372287}
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd221e1b22333784989a6071f0c72391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 1000
 --- !u!61 &7065038480006491001
 BoxCollider2D:
   m_ObjectHideFlags: 0

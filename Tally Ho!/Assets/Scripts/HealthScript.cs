@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour {
     [SerializeField]
@@ -39,7 +40,8 @@ public class HealthScript : MonoBehaviour {
             health -= 10;
             if (health == 0) {
                 //Do Something
-                Destroy(gameObject);
+                SceneManager.LoadScene("DeathScreen");
+                //Destroy(gameObject);
             }
         }
     }

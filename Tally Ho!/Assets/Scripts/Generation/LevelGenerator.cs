@@ -8,6 +8,7 @@ public class LevelGenerator : MonoBehaviour {
     public GameObject DefaultRoom;
     public List<GameObject> RoomPrefabs;
     public GameObject Player;
+    public GameObject boss;
     public float roomWidth, roomHeight;
     public float randomRoomChance;
 
@@ -165,6 +166,9 @@ public class LevelGenerator : MonoBehaviour {
             RoomToAdd = DefaultRoom;
             GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
             newPlayer.name = "Cornelius";
+        } else if(room.type == RoomType.end) {
+            GameObject finalBoss = Instantiate(boss, pos, Quaternion.identity, null);
+            finalBoss.name = "Level 99 Chicken";
         }
         GameObject newRoom = Instantiate(RoomToAdd, pos, Quaternion.identity, transform);
         if (room.up == DoorState.open) {
