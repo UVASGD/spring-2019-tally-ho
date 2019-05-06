@@ -101,10 +101,10 @@ public class LevelGenerator : MonoBehaviour {
         q.Enqueue(grid[0, startIndex]);
         while (q.Count > 0) {
             Room nextRoom = q.Dequeue();
-            nextRoom.reached = true;
             floorRooms.Add(nextRoom);
             foreach (Room r in GetNeighbors(nextRoom, grid)) {
                 if (r.type != RoomType.none && !r.reached) {
+                    r.reached = true;
                     q.Enqueue(r);
                 }
             }
@@ -166,7 +166,7 @@ public class LevelGenerator : MonoBehaviour {
             RoomToAdd = DefaultRoom;
             GameObject newPlayer = Instantiate(Player, pos, Quaternion.identity, null);
             newPlayer.name = "Cornelius";
-        } else if(room.type == RoomType.end) {
+        } else if (room.type == RoomType.end) {
             GameObject finalBoss = Instantiate(boss, pos, Quaternion.identity, null);
             finalBoss.name = "Level 99 Chicken";
         }
